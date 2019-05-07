@@ -1,0 +1,8 @@
+### aliyun epel
+[aliyun-epel]
+name=Extra Packages for Enterprise Linux $releasever - $basearch
+baseurl=http://mirrors.aliyun.com/epel/$releasever/$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/epel/RPM-GPG-KEY-EPEL-$releasever
