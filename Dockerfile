@@ -2,7 +2,7 @@ FROM centos:centos7
 
 MAINTAINER tgyday <tgyday@gmail.com>
 
-ENV SALT_VERSION 2018.3-1
+ENV SALT_VERSION 2019.2-1
 ENV SALT_API_PORT 8000
 ENV SALT_API_HOST 0.0.0.0
 ENV PRE_CREATE_USERS saltapi
@@ -12,6 +12,7 @@ RUN yum install -y https://repo.saltstack.com/yum/redhat/salt-repo-${SALT_VERSIO
 RUN yum install -y salt-master salt-minion salt-ssh salt-syndic salt-cloud salt-api
 
 ADD epel.repo /etc/yum.repos.d/epel.repo
+ADD CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum install -y python2-pip vim iproute
 RUN pip install -i https://pypi.douban.com/simple/ PyOpenSSL

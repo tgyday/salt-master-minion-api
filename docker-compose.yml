@@ -1,0 +1,22 @@
+version: "3.4"
+services:
+  salt-master:
+    image: "tgyday/salt-master-minion-api"
+    container_name: 'salt-master'
+    ports:
+      - "4505:4505"
+      - "4506:4506"
+      - "7771:7000"
+    volumes:
+      - /Users/tang/docker/salt-master-minion-api/master:/etc/salt/master
+      - /Users/tang/python/soms/saltconfig/nodegroup.conf:/etc/salt/nodegroup.conf:ro
+  salt-minion:
+    #container_name: 'salt-minion-1'
+    image: "tgyday/salt-master-minion-api"
+    depends_on:
+      - salt-master
+    links:
+      - salt-master
+    volumes:
+      - /Users/tang/docker/salt-master-minion-api/minion:/etc/salt/minion:ro
+      - /Users/tang/docker/salt-master-minion-api/run.sh.minion:/run.sh

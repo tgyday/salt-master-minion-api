@@ -136,12 +136,12 @@ if [ ! -f /etc/pki/tls/certs/localhost.crt ];then
     salt-call --local tls.create_self_signed_cert
 fi
 
-echo "=> Running EXEC_CMD [$EXEC_CMD]..."
-exec $EXEC_CMD &
+#echo "=> Running EXEC_CMD [$EXEC_CMD]..."
+#exec $EXEC_CMD &
 
-#echo "=> Running MINION_EXE_CMD [$MINION_EXE_CMD]..."
-#exec $MINION_EXEC_CMD &
+echo "=> Running MINION_EXE_CMD [$MINION_EXE_CMD]..."
+exec $MINION_EXEC_CMD
 
-echo "=> Running SALT_API_CMD [$SALT_API_CMD]..."
-exec $SALT_API_CMD
+#echo "=> Running SALT_API_CMD [$SALT_API_CMD]..."
+#exec $SALT_API_CMD
 
